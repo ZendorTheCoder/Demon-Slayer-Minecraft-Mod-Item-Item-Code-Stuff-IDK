@@ -1,0 +1,61 @@
+package zendor.demonslayer.init;
+
+import zendor.demonslayer.item.ZenitsusSwordSixfoldItem;
+import zendor.demonslayer.item.ZenitsusSwordItem;
+import zendor.demonslayer.item.TrainingSwordItem;
+import zendor.demonslayer.item.ThunderBreathingSwordEightfoldItem;
+import zendor.demonslayer.item.ThunderBreathingGodLikeSpeedItem;
+import zendor.demonslayer.item.SunBreathingSwordItem;
+import zendor.demonslayer.item.SunBreathingItem;
+import zendor.demonslayer.item.SpiderAbillityItem;
+import zendor.demonslayer.item.SixfoldLearnItem;
+import zendor.demonslayer.item.RengokusSwordItem;
+import zendor.demonslayer.item.NichirinSteelItem;
+import zendor.demonslayer.item.MuzansBloodItem;
+import zendor.demonslayer.item.GourdItem;
+import zendor.demonslayer.item.GodlikeSpeedLearnItem;
+import zendor.demonslayer.item.FleshItem;
+import zendor.demonslayer.item.EightfoldLearnBookItem;
+import zendor.demonslayer.item.DemonSlayerBookItem;
+import zendor.demonslayer.DemonslayerMod;
+
+import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.common.ForgeSpawnEggItem;
+
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.BlockItem;
+
+public class DemonslayerModItems {
+	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, DemonslayerMod.MODID);
+	public static final RegistryObject<Item> NICHIRIN_STEEL = REGISTRY.register("nichirin_steel", () -> new NichirinSteelItem());
+	public static final RegistryObject<Item> ZENITSUS_SWORD = REGISTRY.register("zenitsus_sword", () -> new ZenitsusSwordItem());
+	public static final RegistryObject<Item> ZENITSUS_SWORD_SIXFOLD = REGISTRY.register("zenitsus_sword_sixfold",
+			() -> new ZenitsusSwordSixfoldItem());
+	public static final RegistryObject<Item> SIXFOLD_LEARN = REGISTRY.register("sixfold_learn", () -> new SixfoldLearnItem());
+	public static final RegistryObject<Item> SPIDER_ABILLITY = REGISTRY.register("spider_abillity", () -> new SpiderAbillityItem());
+	public static final RegistryObject<Item> MUZANS_BLOOD = REGISTRY.register("muzans_blood", () -> new MuzansBloodItem());
+	public static final RegistryObject<Item> RENGOKUS_SWORD = REGISTRY.register("rengokus_sword", () -> new RengokusSwordItem());
+	public static final RegistryObject<Item> NICHIRIN = block(DemonslayerModBlocks.NICHIRIN, CreativeModeTab.TAB_BUILDING_BLOCKS);
+	public static final RegistryObject<Item> DEMON_SLAYER_BOOK = REGISTRY.register("demon_slayer_book", () -> new DemonSlayerBookItem());
+	public static final RegistryObject<Item> THUNDER_BREATHING_SWORD_EIGHTFOLD = REGISTRY.register("thunder_breathing_sword_eightfold",
+			() -> new ThunderBreathingSwordEightfoldItem());
+	public static final RegistryObject<Item> THUNDER_BREATHING_GOD_LIKE_SPEED = REGISTRY.register("thunder_breathing_god_like_speed",
+			() -> new ThunderBreathingGodLikeSpeedItem());
+	public static final RegistryObject<Item> TRAINING_SWORD = REGISTRY.register("training_sword", () -> new TrainingSwordItem());
+	public static final RegistryObject<Item> EIGHTFOLD_LEARN_BOOK = REGISTRY.register("eightfold_learn_book", () -> new EightfoldLearnBookItem());
+	public static final RegistryObject<Item> GODLIKE_SPEED_LEARN = REGISTRY.register("godlike_speed_learn", () -> new GodlikeSpeedLearnItem());
+	public static final RegistryObject<Item> HUMAN = REGISTRY.register("human_spawn_egg", () -> new ForgeSpawnEggItem(DemonslayerModEntities.HUMAN,
+			-676009, -10935787, new Item.Properties().tab(DemonslayerModTabs.TAB_DEMON_SLAYER)));
+	public static final RegistryObject<Item> SUN_BREATHING_SWORD = REGISTRY.register("sun_breathing_sword", () -> new SunBreathingSwordItem());
+	public static final RegistryObject<Item> SUN_BREATHING = REGISTRY.register("sun_breathing", () -> new SunBreathingItem());
+	public static final RegistryObject<Item> GOURD = REGISTRY.register("gourd", () -> new GourdItem());
+	public static final RegistryObject<Item> FLESH = REGISTRY.register("flesh", () -> new FleshItem());
+
+	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
+		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+	}
+}
